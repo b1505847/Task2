@@ -1,0 +1,146 @@
+
+
+body {
+  height: 700px;
+  background-size: cover;
+  background-color: gray;
+  color: black;
+  background-attachment: fixed;
+}
+
+
+
+.container {
+  margin: 100px auto;
+  padding: 0;
+  
+  background-size: cover;
+  border-radius: 3px;
+  /* position: relative; */
+  width: 1000px;
+  height: 100%;
+   -webkit-box-shadow: 2px 3px 7px 0px rgba(50, 50, 50, 0.8);
+  -moz-box-shadow: 2px 3px 7px 0px rgba(50, 50, 50, 0.8);
+  box-shadow: 2px 3px 7px 0px rgba(50, 50, 50, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+  
+}
+.col2{
+  width: 50%;
+  float: left;
+}
+.inf{
+  /* width: 50%; */
+  /* float: right; */
+  /* background-color: #323D54; */
+  padding: 30px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+.btn{
+  font-size: 30px;
+  text-align: center;
+}
+.city-title {
+  font-size: 50px;
+  padding-top: 25px;
+  /* color: black; */
+  margin: auto;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.icon-weather{
+  /* float: left; */
+  margin-left: 70%;
+  
+}
+.icon-weather i{
+  color: white;
+}
+.clearfix::after{
+  content: " ";
+  display: table;
+  clear: both;
+}
+  
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(20, 24, 33, 0), rgba(20, 24, 33, 0.75), rgba(20, 24, 33, 0));
+  width: 60%;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.col{
+  float: left;
+  width: 33.33%;
+  text-align: center;
+  font-size: 30px;
+}
+.small-icon i{
+  font-size: 50px;
+  padding: 30px;
+  color: white;
+}
+
+.row{
+  margin: 50px 0;
+}
+
+
+.date{
+  margin-left: 20px;
+  font-size: 20px;
+  margin-top:25px;
+  text-align: center;
+  
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
