@@ -3,18 +3,21 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://darkskyapp.github.io/skycons/skycons.js"></script>
-        <script src="/js/script.js"></script>
-        <link rel="stylesheet" href="/css/style.css">
+        <script src="js/script.js"></script>
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css">
+        <link rel="stylesheet" href="css/style.css">
         <title>Weather</title>
       </head>
 <body>
  
 
     <div class="container">
-      
+        
+      <div id ="currently" class="content">
           <div class="city-title ">
+              <p>Location currently</p> 
               <span id="location"> Unknown </span>
               <hr>
             </div>
@@ -25,95 +28,109 @@
                 </div>
                 <div class="col2">
                     <div class="inf">
+                        <div class="title">The weather today:</div>  
+                            <div id="summary" > ...Loading </div>
                         <div id="temp-currently" ></div>
-                        <div id="summary" > ...Loading </div>
+                        
+                        <div id="wind"></div>
+                        <div id="humid"></div>
                     </div>
                 </div>
                 
             </div>
             <!-- <div class="clearfix"></div> -->
-            <div class="btn">
-                &deg C
-            <label class="switch">
-                <input type="checkbox" >
-                <span class="slider round"></span>
-            </label>
-                &deg F
-          </div>
+            
             <hr>
           <div class="row">
             <div class="col" >
-              <div id="tomorrow-day">a</div>
+              <div class="tomorrow-day">a</div>
               <!-- <div id="tomorrow-icon" class="small-icon" > </div>  -->
               <canvas id="tomorrow-icon" width="80" height="80"></canvas>
               <div id="temp-tomorrow"></div>
             </div>
             <div class="col" >
-                <div id="2-day-after-day">a</div>
+                <div class="2-day-after-day">a</div>
                 <!-- <div id="2-day-after" class="small-icon" > </div>  -->
                 <canvas id="2-day-after" width="80" height="80"></canvas>
                 <div id="temp-2-day-after"></div>
               </div>
             <div class="col" >
-                <div id="3-day-after-day">a</div>
+                <div class="3-day-after-day">a</div>
                 <!-- <div id="3-day-after" class="small-icon" > </div>  -->
-                <canvas id="3-day-after" width="64" height="64"></canvas>
+                <canvas id="3-day-after" width="80" height="80"></canvas>
                 <div id="temp-3-day-after"></div>
                 </div>
           </div>
+          </div>
+          <div id="other" class="content">
+              <div class="search-box">
+                <input type="text" id ="txt">
+                <input type="submit" value="search" id="search">
+            </div>
+                <div class="city-title ">
+                    <p></p> 
+                    <span id="location2"> Unknown </span>
+                    <hr>
+                  </div>
+                  <div class="row">
+                      <!-- <div id="icon" class="icon-weather"></div> -->
+                      <div class="col2">
+                          <canvas id="icon2" width="120" height="120" class="icon-weather"></canvas>
+                      </div>
+                      <div class="col2">
+                          <div class="inf">
+                              <div class="title">The weather today:</div>  
+                                  <div id="summary2" > ...Loading </div>
+                              <div id="temp-currently2" ></div>
+                              
+                              <div id="wind2"></div>
+                              <div id="humid2"></div>
+                          </div>
+                      </div>
+                      
+                  </div>
+                  <!-- <div class="clearfix"></div> -->
+                  
+                  <hr>
+                <div class="row">
+                  <div class="col" >
+                    <div class="tomorrow-day">a</div>
+                    <!-- <div id="tomorrow-icon" class="small-icon" > </div>  -->
+                    <canvas id="tomorrow-icon2" width="80" height="80"></canvas>
+                    <div id="temp-tomorrow2"></div>
+                  </div>
+                  <div class="col" >
+                      <div class="2-day-after-day">a</div>
+                      <!-- <div id="2-day-after" class="small-icon" > </div>  -->
+                      <canvas id="2-day-after2" width="80" height="80"></canvas>
+                      <div id="temp-2-day-after2"></div>
+                    </div>
+                  <div class="col" >
+                      <div class="3-day-after-day">a</div>
+                      <!-- <div id="3-day-after" class="small-icon" > </div>  -->
+                      <canvas id="3-day-after2" width="80" height="80"></canvas>
+                      <div id="temp-3-day-after2"></div>
+                      </div>
+                </div>
+        </div>
+       
+        <div class="tab">
+                <button class="tablink" onclick="openTab('currently', this, 'red')" id="defaultOpen">Current position</button>
+                <button class="tablink" onclick="openTab('other', this, 'green')" id="phat">Other</button>
+        </div>
+        
           <hr>
+          <div class="btn">
+                &deg; C
+            <label class="switch">
+                <input type="checkbox" >
+                <span class="slider round"></span>
+            </label>
+                &deg; F
+          </div>
           <div class="date"></div>
+      
       </div>
-        
-        
-
-
-
-
-      <!-- <div class="city-title ">
-        <span id="location"> </span>
-      </div>
-      <hr />
-      <div class="city-weather-temperature loader">
-        <span class="celsius fahrenheit-btn "></span>
-        <span class="fahrenheit celsius-btn"></span>
-      </div>
-  
-      <div class="city-weather-description">
-        <span id="icon"></span><br>
-        <span id="description"></span>
-      </div>
-  
-      <div class="bottom">
-        <div class="nav-info clearfix">
-          <div class="add-info">
-            <ul id="details">
-              <li>
-               <span id="todayC"> </span>
-                <span id="todayF"> </span>
-              </li>
-              <li>
-                <span id="tomorrowC"> </span>
-                <span id="tomorrowF"> </span>
-              </li>
-              <li>
-                <span id="afterTomorrowC"> </span>
-                <span id="afterTomorrowF"> </span>
-              </li>
-              <li>
-                <span id="afterAfterTomorrowC"> </span>
-                <span id="afterAfterTomorrowF"> </span>
-              </li>
-              
-            </ul>
-              
-          </div>   
-          
-         </div> 
-  
-      </div> bottom --> 
-  
-    </div>
   
       
 </body>
